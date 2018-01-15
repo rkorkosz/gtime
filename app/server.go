@@ -1,4 +1,4 @@
-package main
+package app
 
 import (
 	"context"
@@ -7,6 +7,8 @@ import (
 	"os"
 	"os/signal"
 	"time"
+
+	"github.com/spf13/viper"
 )
 
 func RunServer(server *http.Server) {
@@ -24,7 +26,7 @@ func RunServer(server *http.Server) {
 }
 
 func NewServer(handler http.Handler) *http.Server {
-	port := os.Getenv("PORT")
+	port := viper.GetString("port")
 	return &http.Server{
 		Addr:           ":" + port,
 		Handler:        handler,

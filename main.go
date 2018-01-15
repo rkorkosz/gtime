@@ -1,7 +1,7 @@
 package main
 
+import "github.com/rkorkosz/gtime/cmd"
+
 func main() {
-	ac := NewAppContext()
-	r := NewRouter(ac)
-	RunServer(NewServer(r))
+	cmd.Execute()
 }
