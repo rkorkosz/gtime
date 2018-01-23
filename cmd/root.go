@@ -47,6 +47,8 @@ func init() {
 	viper.BindPFlag("github-client-id", rootCmd.Flags().Lookup("github-client-id"))
 	rootCmd.Flags().String("github-client-secret", "", "Github client secret")
 	viper.BindPFlag("github-client-secret", rootCmd.Flags().Lookup("github-client-secret"))
+	rootCmd.Flags().String("db-url", "localhost", "Mongo database url")
+	viper.BindPFlag("db-url", rootCmd.Flags().Lookup("db-url"))
 }
 
 // initConfig reads in config file and ENV variables if set.

@@ -27,7 +27,13 @@ func repos(ac *appContext) http.Handler {
 	})
 }
 
-func syncRepo(ac *appContext) http.Handler {
+func sync(ac *appContext) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		user, err := GetUser(ac, r)
+		if err != nil {
+			http.Error(w, http.StatusText(401), 401)
+			return
+		}
+
 	})
 }
